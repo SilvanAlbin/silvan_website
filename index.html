@@ -36,6 +36,7 @@
             opacity: 0.9;
         }
     </style>
+    <script defer src="https://umami-ten-liart.vercel.app/script.js" data-website-id="30969028-748e-4cb1-90fe-ff1001feaee5"></script>
 </head>
 <body>
     <div class="content">
@@ -43,5 +44,44 @@
         <p>🚧 Diese Seite befindet sich im Aufbau</p>
         <p></p>
     </div>
+
+    <!-- Datenschutz-Button unten links -->
+    <div id="privacy-hint" style="position: fixed; left: 20px; bottom: 20px; z-index: 1000;">
+      <button id="privacy-btn" style="background: rgba(255, 255, 255, 0.9); border: none; border-radius: 8px; padding: 10px 16px; font-size: 14px; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.15); transition: background 0.3s ease;">
+        🔒 Datenschutz
+      </button>
+    </div>
+
+    <!-- Hidden Popover -->
+    <div id="privacy-popover" style="display:none; position: fixed; left: 24px; bottom: 70px; max-width: 280px; background: #fff; color: #333; border: none; border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.2); z-index: 1001; padding: 18px;">
+      <h3 style="margin: 0 0 6px 0; font-size: 16px; color: #0f4c81;">Datenschutzhinweis</h3>
+      <p style="margin: 6px 0; font-size: 12px; color: #666; font-weight: 600;">Umami Analytics</p>
+      <p style="font-size: 13px; line-height: 1.5; margin: 10px 0; color: #444;">
+        Diese Website verwendet <strong>Umami</strong> zur Erfassung anonymer Nutzungsstatistiken.
+      </p>
+      <ul style="font-size: 12px; line-height: 1.6; color: #555; margin: 10px 0; padding-left: 18px;">
+        <li><strong>Keine Cookies</strong> werden gesetzt</li>
+        <li><strong>Keine personenbezogenen Daten</strong> (z.B. IP-Adressen) werden gespeichert</li>
+        <li>Vollständig <strong>DSGVO- und DSG-konform</strong></li>
+        <li>Dient ausschliesslich zur Verbesserung des Angebots</li>
+      </ul>
+      <button onclick="document.getElementById('privacy-popover').style.display='none'" style="margin-top: 10px; background: #1e88e5; border: none; color: white; border-radius: 6px; padding: 7px 14px; font-size: 12px; cursor: pointer; font-weight: 600;">Verstanden</button>
+    </div>
+
+    <script>
+      const btn = document.getElementById('privacy-btn');
+      const pop = document.getElementById('privacy-popover');
+      
+      btn.onmouseover = function() {
+        btn.style.background = 'rgba(255, 255, 255, 1)';
+      };
+      btn.onmouseout = function() {
+        btn.style.background = 'rgba(255, 255, 255, 0.9)';
+      };
+      
+      btn.onclick = function() {
+        pop.style.display = (pop.style.display === 'none' || pop.style.display === '') ? 'block' : 'none';
+      };
+    </script>
 </body>
 </html>
